@@ -8885,12 +8885,12 @@ const commitfile = async( local_path, skip_ci, commit_message ) => {
 		message = commit_message;
 	}
 
-	return await toolkit.git.commit( local_path, message );
+	return await toolkit.exec( `git commit -S ${message}` );
 };
 
 const createPullRequestBranch = async( work_dir, current_branch ) => {
 	let timestamp       = Math.round( ( new Date() ).getTime() / 1000 );
-	let new_branch_name = `file-sync-${toolkit.input.env( 'GITHUB_RUN_NUMBER' )}-${current_branch}-${timestamp}`;
+	let new_branch_name = `central-sync-${toolkit.input.env( 'GITHUB_RUN_NUMBER' )}-${current_branch}-${timestamp}`;
 	let status          = true;
 	await toolkit.exec( `git checkout -b ${new_branch_name}`, work_dir ).then( () => {
 		toolkit.log.success( `Pull Request Branch "${new_branch_name}" Created From ${current_branch}`, '	' );
