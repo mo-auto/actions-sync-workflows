@@ -8885,7 +8885,7 @@ const commitfile = async( local_path, skip_ci, commit_message ) => {
 		message = commit_message;
 	}
 
-	return await toolkit.exec( `git commit -S "${message}"` );
+	return await toolkit.exec( `git commit -S -m "${message}"`, local_path );
 };
 
 const createPullRequestBranch = async( work_dir, current_branch ) => {
