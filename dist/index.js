@@ -9064,7 +9064,7 @@ async function run() {
 							let { data: pullrequest } = await octokit.pulls.create( {
 								owner: owner,
 								repo: repository,
-								title: `Files Sync From ${toolkit.input.env( 'GITHUB_REPOSITORY' )}`,
+								title: `ci: sync workflows from ${toolkit.input.env( 'GITHUB_REPOSITORY' )}`,
 								head: pull_request_branch,
 								base: current_branch,
 							} );
