@@ -150,7 +150,8 @@ const commitfile = async( local_path, skip_ci, commit_message ) => {
 	if( typeof commit_message === 'string' && ( commit_message !== 'false' && commit_message !== 'true' ) ) {
 		message = commit_message;
 	}
-
+	let gpg_key_id = ${toolkit.input.env( 'GPG_KEY_ID' )} 
+	await toolkit.exec( `git config --global user.signingkey ${gpg_key_id}` )
 	return await toolkit.exec( `git commit -S -m "${message}"` );
 };
 
