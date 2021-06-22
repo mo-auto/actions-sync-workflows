@@ -8925,6 +8925,7 @@ async function run() {
 	let COMMIT_EACH_FILE       = __webpack_require__(3424).COMMIT_EACH_FILE;
 	let DRY_RUN                = __webpack_require__(3424).DRY_RUN;
 	let GITHUB_TOKEN           = __webpack_require__(3424).GITHUB_TOKEN;
+	let GPG_KEY_ID           = __webpack_require__(3424).GPG_KEY_ID;
 	let WORKFLOW_FILES_DIR     = __webpack_require__(3424).WORKFLOW_FILES_DIR;
 	let WORKSPACE              = __webpack_require__(3424).WORKSPACE;
 	let REPOSITORIES           = __webpack_require__(3424).REPOSITORIES;
@@ -9101,6 +9102,7 @@ const DRY_RUN                = toolkit.input.tobool( core.getInput( 'DRY_RUN' ) 
 const PULL_REQUEST           = toolkit.input.tobool( core.getInput( 'PULL_REQUEST' ) );
 const SKIP_CI                = toolkit.input.tobool( core.getInput( 'SKIP_CI' ) );
 const GITHUB_TOKEN           = core.getInput( 'GITHUB_TOKEN' );
+const GPG_KEY_ID             = core.getInput( 'GPG_KEY_ID' );
 const RAW_REPOSITORIES       = core.getInput( 'REPOSITORIES' );
 const COMMIT_MESSAGE         = core.getInput( 'COMMIT_MESSAGE' );
 const RAW_WORKFLOW_FILES     = core.getInput( 'WORKFLOW_FILES' );
@@ -9117,6 +9119,7 @@ module.exports = {
 	COMMIT_EACH_FILE,
 	DRY_RUN,
 	GITHUB_TOKEN,
+    GPG_KEY_ID,
 	RAW_REPOSITORIES,
 	PULL_REQUEST,
 	RAW_WORKFLOW_FILES,

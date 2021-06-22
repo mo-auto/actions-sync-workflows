@@ -7,6 +7,7 @@ Github Action To Sync Github Action's Workflow Files Across Repositories
 | **Argument** | Defaults | Description |
 | --- | :---: | :---: | 
 | `GITHUB_TOKEN` | - | **Required** Token to use to get repos and write secrets. `${{secrets.GITHUB_TOKEN}}` will not work. instead **Personal Access Token Required*** |
+| `GPG_KEY_ID` | - | **Required** GPG Key ID to sign commits. You may [import](https://github.com/crazy-max/ghaction-import-gpg) your GPG private key and use the output to the key id |
 | `REPOSITORIES` | - | **Required** New line deliminator regex expressions to select repositories. Repositories are limited to those in which the token user is an owner or collaborator. |
 | `WORKFLOW_FILES` | - | **Required** New line deliminator regex expressions. workflow files to be copied to provided repositories |
 | `DRY_RUN` | ***false*** | Run everything except for nothing will be pushed. |
@@ -158,6 +159,7 @@ jobs:
           REPOSITORIES: ${{ env.REPOSITORIES }}
           WORKFLOW_FILES: ${{ env.WORKFLOW_FILES }}
           GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          GPG_KEY_ID: ${{ steps.import_gpg.outputs.keyid }}
 
 ```
 

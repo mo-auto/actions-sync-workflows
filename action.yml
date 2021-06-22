@@ -20,6 +20,9 @@ inputs:
   GITHUB_TOKEN:
     description: "Token to use to get repos and write secrets"
     required: true
+  GPG_KEY_ID:
+    description: "GPG key id to use for signing commits"
+    required: true
   DRY_RUN:
     description: "Run everything except for nothing will be Updated."
     required: false
